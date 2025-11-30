@@ -22,8 +22,8 @@ int book_count;
 int choice;
 int id =1;
 int idBookExisted();
-int borrow_count =0; // so luong phieu muon hien tai
-int borrow_id = 1; // ID phieu muon tu tang
+int borrow_count =0; 
+int borrow_id = 1; 
 int n_book;
 int idBookExisted(int check_id);
 
@@ -240,7 +240,7 @@ void input_book () {
 	books[book_count].bookId = id;
 	printf("Ma sach: %d\n",id);
 	
-	do // them do vao la chay them dong nua 
+	do 
 	{
 	printf("Tieu de sach: ");
 	getchar(); 
@@ -249,7 +249,7 @@ void input_book () {
 	
 	if(strlen(books[book_count].title) == 0){
 		printf("vui long nhap lai tieu de sach\n");
-	}else if( is_title_existed(books[book_count].title) != -1) { // kiem tra trung lap tieu de da FIX
+	}else if( is_title_existed(books[book_count].title) != -1) { 
 		    printf("Loi: Tieu de sach da ton tai . \n");
 			books[book_count].title[0] = '\0';
 		   books[book_count].title[0] = '\0';
@@ -411,23 +411,22 @@ int idBookExisted(int check_id) {
 }
 
 void display_book() {
-int currentPage = 1; // duoc dung de luon bat dau tu trang dau tien
+int currentPage = 1; 
     int totalPages;     
     int choicePage;     
     int isValidInput; 
 	int stt; 
-	if (book_count == 0) {// dang kiem tra mang rong. Neu book_count =0 thi thong bao va thoat
+	if (book_count == 0) {
 		printf("\nDanh sach sach hien tai dang rong. Vui long them sach truoc.\n");
 		return;
 	}
     totalPages = book_count / ITEMS_PER_PAGE + (book_count % ITEMS_PER_PAGE != 0);
-// cong thuc    = quan li kich thuoc danh sach sach luu tru trong mang   / cac muc tren trang gioi han =10 
-//               (dung de tinh so luong tran dau du) + phan nay dung de neu co thua 1 sach khi da co 10 sach trong 1 trang thi so sach thua se duoc chuyen qua 1 trang moi
-    do {
+
+     do {
         int startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-//          bat dau tu sach thu 1 neu chi co 10 quyen =   (so sach trong trang hien tai-1) *10 la du lieu mac dinh chi co 10 cuon sach
+
 		int endIndex = startIndex + ITEMS_PER_PAGE;
-        if (endIndex > book_count) {// dam bao endIdex khong bao gio vuot qua tong sach (book_count) hien co
+        if (endIndex > book_count) {
             endIndex = book_count; 
         }
 
@@ -440,7 +439,7 @@ int currentPage = 1; // duoc dung de luon bat dau tu trang dau tien
         printf("----------------------------------------------------------------------------------------------------\n");
 
         int i;
-        for (i = startIndex; i < endIndex; i++) { // vong lap hien thi sach chi chay den 30
+        for (i = startIndex; i < endIndex; i++) {
             Book s = books[i]; 
             int bookId = i + 1;
             
